@@ -1,0 +1,46 @@
+.realtors {
+    background-color: $color-secondary;
+    grid-column: col-start 7 / full-end;
+    padding: 3rem;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    grid-row-gap: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        // realtors section below the header.
+        grid-column: 1 / -1;
+        }
+
+    // in this case the list plays the role of the grid container in the container so we can put photos from one side and the name and sold from the other.
+    &__list {
+        display: grid;
+        grid-template-columns: min-content max-content; // min-content fits the img and max-content for the text cuz doesn't create any line breaks.
+        grid-column-gap: 2rem;
+        grid-row-gap: 5vh;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            // realtors section below the header.
+            grid-template-columns: repeat(3, min-content max-content);
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content;
+        }   
+    }
+
+    &__img {
+        width: 7rem;
+        border-radius: 50%;
+        display: block;
+    }
+
+    &__sold {
+        text-transform: uppercase;
+        color: $color-grey-light-2;
+        margin-top: -3px;
+    }
+}
